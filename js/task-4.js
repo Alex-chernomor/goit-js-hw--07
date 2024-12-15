@@ -9,7 +9,13 @@ formEl.addEventListener('submit', (e)=>{
    alert('All form fields must be filled in')
 } 
 else {
-      console.log(`Email: ${mailValue}, password: ${passValue} `);
+  const formData = {
+    email:mailValue,
+    password:passValue,
+  }
+
+  
+      console.log(formData);
       formEl.reset();
      }
     

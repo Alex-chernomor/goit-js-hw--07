@@ -5,6 +5,8 @@ const input = control.children[0];
 const createBtn = control.children[1];
 const destroyBtn = control.children[2];
 
+const elementBox = document.createElement('div')
+
 let sizeEl = 30;
 
 
@@ -17,27 +19,26 @@ const createElem = function(){
   element.style.marginBottom = '5px';
   element.style.backgroundColor = getRandomHexColor();
   
-  boxes.append(element);
- }
+  elementBox.append(element);
+}
 
 const handleCreateEl = function(){
+  handleDestoyBtn()
   if(input.value>100 || input.value<0 || input.value===""){
     alert("This is wrong!!Choose from 1 to 100!")
   } else {  
-    boxes.innerHTML = "";
-    sizeEl = 30;
     for(let i = 1; i<=input.value; i++){
       createElem();
       sizeEl += 10;
     };
   };
+  boxes.append(elementBox)
   input.value = "";
 };
 
 const handleDestoyBtn = function(){
-  boxes.innerHTML = "";
+  elementBox.innerHTML = "";
   sizeEl = 30;
-  input.value = "";  
 };
 
 function getRandomHexColor() {
